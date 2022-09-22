@@ -1,8 +1,17 @@
+from datetime import date
 from typing import Union
-
+from pydantic import BaseModel
 from fastapi import FastAPI
 
 app = FastAPI()
+# User Model Class
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    joined: date
+
 
 @app.get("/")
 async def read_root():
